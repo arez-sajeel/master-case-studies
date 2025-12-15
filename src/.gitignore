@@ -1,0 +1,6 @@
+# Ignore asset folders (binaries, large files, etc.)
+assets/
+*.DS_Store
+node_modules/
+dist/
+.env
