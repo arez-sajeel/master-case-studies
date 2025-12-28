@@ -294,6 +294,65 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 //-------------------------------------------------------------------------------------
+/* ==============================================================
+   SMOOTH PAGE TRANSITIONS
+   ============================================================== */
+(() => {
+  const TRANSITION_DURATION = 300;
+  
+  // Add transition class to main content wrapper
+  const pageContent = document.querySelector('.ubg');
+  if (pageContent) {
+    pageContent.classList.add('page-transition');
+  }
+
+  // Handle internal link clicks for smooth transitions
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a');
+    
+    // Skip if not a link or if it's a special link
+    if (!link) return;
+    
+    const href = link.getAttribute('href');
+    
+    // Skip external links, anchors, downloads, and special protocols
+    if (!href ||
+        href.startsWith('#') ||
+        href.startsWith('http') ||
+        href.startsWith('mailto:') ||
+        href.startsWith('tel:') ||
+        link.hasAttribute('download') ||
+        link.target === '_blank' ||
+        e.ctrlKey || e.metaKey || e.shiftKey) {
+      return;
+    }
+    
+    // Check if it's an internal HTML page link
+    if (href.endsWith('.html') || href === 'index.html' || 
+        ['index.html', 'about-us.html', 'courses.html', 'resources.html'].includes(href)) {
+      
+      e.preventDefault();
+      
+      // Trigger fade-out
+      if (pageContent) {
+        pageContent.classList.add('fade-out');
+      }
+      
+      // Navigate after transition
+      setTimeout(() => {
+        window.location.href = href;
+      }, TRANSITION_DURATION);
+    }
+  });
+
+  // Handle browser back/forward with transition
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && pageContent) {
+      // Page was restored from cache (back/forward)
+      pageContent.classList.remove('fade-out');
+    }
+  });
+})();
 
 
 
