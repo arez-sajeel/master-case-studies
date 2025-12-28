@@ -2168,9 +2168,6 @@ li a, li em, li strong{
     transform: translateY(-50%) rotate(-45deg);
     background: var(--color-accent);
   }
-  .entry-banner-index{
-    /* padding-top: var(--space-lg); */
-  }
 }
 
 @media (max-width:936px){
