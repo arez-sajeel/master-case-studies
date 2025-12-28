@@ -2172,7 +2172,24 @@ li a, li em, li strong{
 
 @media (max-width:936px){
   .guides{padding:1.75rem 1.25rem 0;gap:1.5rem 1rem;}
-  .guides-header{text-align:center;}
+  .guides-header{
+    text-align:center;
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .guides-header:first-of-type{
+    margin-top: 0;
+  }
+  .guides-title{
+    font-size: 2rem;
+    margin-bottom: var(--space-sm);
+  }
+  .guides-tagline{
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+  }
   .guide-card{display:flex;flex-direction:column;flex:0 0 100%;max-width:100%;min-height:260px;overflow:hidden;}
   .guide-card:not(.open){min-height:260px;}
   .guide-card:not(.open) .guide-toggle{flex:1;height:100%;}
