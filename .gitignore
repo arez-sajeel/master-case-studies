@@ -1,6 +1,9 @@
-# Ignore asset folders (binaries, large files, etc.)
-assets/
+# System files
 *.DS_Store
+
+# Dependencies and build outputs
 node_modules/
 dist/
+
+# Environment variables
 .env
