@@ -1674,12 +1674,101 @@ body.menu-active .entry-banner-index {
   box-shadow: var(--shadow-md);
 }
 
-.about-section.engine {
-  grid-template-areas: "photo text";
+/* About Page Hero */
+.about-hero {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto var(--space-xl);
+  padding: var(--space-lg) var(--space-md) var(--space-md);
 }
 
-.about-section.journey {
-  grid-template-areas: "text photo";
+.about-hero-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  color: #1a1a2e;
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+}
+
+.about-hero-text {
+  font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+  color: #4a4a5a;
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+}
+
+.about-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  background: #0077b5;
+  border-radius: 2rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.about-hero-cta:hover {
+  background: #005f8f;
+  transform: translateY(-1px);
+}
+
+.about-hero-linkedin {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+/* 2x2 Card Grid for About Page */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+  padding: 0 1rem;
+}
+
+.about-card {
+  background: #fff;
+  border: 1px solid #e8e8ef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.about-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.about-card-title {
+  color: #1a1a2e;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-card p {
+  color: #3d3d4d;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Legacy section styles (keep for compatibility) */
+.about-section.journey,
+.about-section.engine,
+.about-section.impact-commitments,
+.about-section.thank-you {
+  grid-template-columns: 1fr;
+  grid-template-areas: "text";
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-text {
@@ -2009,6 +2098,84 @@ body.menu-active .entry-banner-index {
   margin-top: var(--space-xl);
 }
 
+/* Footer Bottom Section */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0 0;
+  grid-column: 1 / -1;
+}
+
+.footer-linkedin-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #0077b5;
+  border-radius: 2rem;
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.footer-linkedin-cta:hover {
+  background: #005f8f;
+  transform: translateY(-1px);
+}
+
+.footer-linkedin-cta .footer-linkedin-icon {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.footer-linkedin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-linkedin-icon {
+  width: 24px;
+  height: 24px;
+  transition: opacity 0.2s ease;
+  opacity: 0.6;
+}
+
+.footer-linkedin:hover .footer-linkedin-icon {
+  opacity: 1;
+}
+
+.footer-legal {
+  color: #6b6b7a;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.footer-powered {
+  color: #9a9aa8;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.footer-powered strong {
+  color: #6b6b7a;
+}
+
+/* About card sub-paragraph */
+.about-card-sub {
+  color: #6b6b7a;
+  font-size: 0.85rem;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+/* Legacy social links (keep for compatibility) */
 .footer-social-links {
   display: flex;
   justify-content: center;
@@ -2223,17 +2390,22 @@ li a, li em, li strong{
   .dl-center .download-item svg{width:1.1em;height:1.1em;}
   .download-extra {display: none}
   /* About Page */
-  .sterling-content-section {padding: 2rem 1rem 0;}
-  .sterling-content p {text-align: justify;}
-  .about-container{padding:2rem 1rem 0;}
-  .about-section{gap: 0;}
-  .about-section.journey{grid-template-columns: 1fr;grid-template-areas: "text" "photo";}
-  .about-section.engine{grid-template-columns: 1fr;grid-template-areas: "text" "photo";}
-  .about-figure{display: contents}
-  .about-photo{display:none;}
-  .enquiry-box{margin:1.5rem auto;padding:1.5rem;}
-  .enquiry-form input,.enquiry-form textarea{padding:.5rem;}
-  .enquiry-form button{padding:.5rem;}
+  .about-container{padding:1.5rem 1rem 0;}
+  .about-hero {
+    padding: var(--space-lg) var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+  .about-hero-title {
+    font-size: 1.5rem;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+  .about-card {
+    padding: 1.25rem;
+  }
   /* Footer */
   .footer-container { 
     grid-template-columns: 1fr;
