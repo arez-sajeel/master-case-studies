@@ -100,15 +100,20 @@
         <a href="index.html" class="contact-success-link">Back to homepage</a>
       </div>
 
+      <div id="contact-error" class="contact-error" hidden role="alert">
+        Something went wrong sending your message. Please try again or email
+        <a href="mailto:support@sterlingorigin.com">support@sterlingorigin.com</a>.
+      </div>
+
       <div id="contact-form-wrapper" class="enquiry-box">
         <form
           id="contact-form"
           class="enquiry-form"
           name="contact"
           method="POST"
+          data-netlify="true"
           netlify
           netlify-honeypot="bot-field"
-          action="/contact.html"
         >
           <input type="hidden" name="form-name" value="contact" />
           <input type="hidden" name="subject" value="Master Case Studies - Website Contact" />
@@ -165,20 +170,64 @@
   <script src="js/script.js"></script>
   <script>
     (function () {
-      var params = new URLSearchParams(window.location.search);
-      var isSuccess = params.has('success') || window.location.search.indexOf('success') !== -1;
-      if (!isSuccess) return;
-
-      var success = document.getElementById('contact-success');
+      var successEl = document.getElementById('contact-success');
       var formWrapper = document.getElementById('contact-form-wrapper');
       var hero = document.querySelector('.contact-hero');
+      var errorEl = document.getElementById('contact-error');
 
-      if (formWrapper) formWrapper.hidden = true;
-      if (hero) hero.hidden = true;
-      if (success) {
-        success.hidden = false;
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      function showContactSuccess() {
+        if (formWrapper) formWrapper.hidden = true;
+        if (hero) hero.hidden = true;
+        if (errorEl) errorEl.hidden = true;
+        if (successEl) {
+          successEl.hidden = false;
+          successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        if (window.history && window.history.replaceState) {
+          window.history.replaceState(null, '', window.location.pathname + '?success=true');
+        }
       }
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('success') || window.location.search.indexOf('success') !== -1) {
+        showContactSuccess();
+        return;
+      }
+
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var defaultLabel = submitBtn ? submitBtn.textContent : 'Send message';
+        if (errorEl) errorEl.hidden = true;
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending…';
+        }
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Form submission failed');
+            }
+            form.reset();
+            showContactSuccess();
+          })
+          .catch(function () {
+            if (errorEl) errorEl.hidden = false;
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = defaultLabel;
+            }
+          });
+      });
     })();
   </script>
   <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>

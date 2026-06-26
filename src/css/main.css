@@ -2216,6 +2216,23 @@ body.menu-active .entry-banner-index {
   outline-offset: 3px;
 }
 
+.contact-error {
+  text-align: center;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  border-radius: var(--radius-md);
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.contact-error a {
+  color: #991b1b;
+  font-weight: var(--font-weight-semibold);
+}
+
 /* About card sub-paragraph */
 .about-card-sub {
   color: #6b6b7a;
