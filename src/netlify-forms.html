@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <title>Netlify form detection</title>
+</head>
+<body>
+  <!-- Static form for Netlify build-time detection only — not linked from the site -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="subject" value="Master Case Studies - Website Contact" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="topic" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>
