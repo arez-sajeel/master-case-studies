@@ -2153,24 +2153,67 @@ body.menu-active .entry-banner-index {
 
 .contact-success {
   text-align: center;
-  padding: var(--space-xl);
-  background: var(--color-bg-secondary);
-  border: 1px solid var(--color-bg-tertiary);
-  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-md);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.contact-success-kicker {
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+  margin: 0 0 var(--space-sm);
 }
 
 .contact-success-title {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: clamp(1.375rem, 4vw, 1.625rem);
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin: 0 0 var(--space-sm);
+  text-wrap: balance;
 }
 
 .contact-success-text {
   color: var(--color-text-secondary);
-  margin: 0;
+  margin: 0 auto var(--space-md);
+  max-width: 28rem;
   line-height: 1.6;
+  font-size: 1rem;
+}
+
+.contact-success-text a {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+}
+
+.contact-success-text a:hover {
+  color: var(--color-accent);
+}
+
+.contact-success-link {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: var(--color-bg-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-success-link:hover {
+  background: var(--color-accent-light);
+  transform: translateY(-1px);
+}
+
+.contact-success-link:focus-visible {
+  outline: 2px solid var(--color-accent-dark);
+  outline-offset: 3px;
 }
 
 /* About card sub-paragraph */

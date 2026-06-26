@@ -89,9 +89,15 @@
         </p>
       </div>
 
-      <div id="contact-success" class="contact-success" hidden>
-        <h2 class="contact-success-title">Message sent</h2>
-        <p class="contact-success-text">Thanks for reaching out. We'll get back to you as soon as we can.</p>
+      <div id="contact-success" class="contact-success enquiry-box" hidden role="status" aria-live="polite">
+        <p class="contact-success-kicker">Message received</p>
+        <h2 class="contact-success-title">Thank you for getting in touch</h2>
+        <p class="contact-success-text">
+          We've received your message and will be in contact shortly.
+          For anything urgent, email
+          <a href="mailto:support@sterlingorigin.com">support@sterlingorigin.com</a>.
+        </p>
+        <a href="index.html" class="contact-success-link">Back to homepage</a>
       </div>
 
       <div id="contact-form-wrapper" class="enquiry-box">
@@ -158,10 +164,22 @@
 
   <script src="js/script.js"></script>
   <script>
-    if (window.location.search.includes('success')) {
-      document.getElementById('contact-success').hidden = false;
-      document.getElementById('contact-form-wrapper').hidden = true;
-    }
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var isSuccess = params.has('success') || window.location.search.indexOf('success') !== -1;
+      if (!isSuccess) return;
+
+      var success = document.getElementById('contact-success');
+      var formWrapper = document.getElementById('contact-form-wrapper');
+      var hero = document.querySelector('.contact-hero');
+
+      if (formWrapper) formWrapper.hidden = true;
+      if (hero) hero.hidden = true;
+      if (success) {
+        success.hidden = false;
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    })();
   </script>
   <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
 </body>
