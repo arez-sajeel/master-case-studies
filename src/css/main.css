@@ -2045,16 +2045,15 @@ body.menu-active .entry-banner-index {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
+  padding: 0.125rem;
   border-radius: var(--radius-sm);
-  background: #0077b5;
-  transition: background 0.2s ease, transform 0.2s ease;
+  background: transparent;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .footer-linkedin-link:hover {
-  background: #005f8f;
   transform: translateY(-1px);
+  opacity: 0.85;
 }
 
 .footer-linkedin-link:focus-visible {
@@ -2063,9 +2062,10 @@ body.menu-active .entry-banner-index {
 }
 
 .footer-linkedin-icon {
-  width: 1.125rem;
-  height: 1.125rem;
-  filter: brightness(0) invert(1);
+  width: 1.75rem;
+  height: 1.75rem;
+  display: block;
+  object-fit: contain;
 }
 
 .footer-legal {
@@ -2104,8 +2104,12 @@ body.menu-active .entry-banner-index {
 }
 
 .contact-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: var(--space-md);
+  width: 100%;
 }
 
 .contact-hero-title {
@@ -2115,6 +2119,9 @@ body.menu-active .entry-banner-index {
   color: var(--color-text-primary);
   margin: 0 0 var(--space-sm);
   letter-spacing: -0.02em;
+  text-align: center;
+  width: 100%;
+  text-wrap: balance;
 }
 
 .contact-hero-text {
@@ -2334,6 +2341,20 @@ li a, li em, li strong{
     transform: translateY(-50%) rotate(-45deg);
     background: var(--color-accent);
   }
+
+  .contact-container {
+    padding: var(--space-xl) var(--space-md) var(--space-md);
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .contact-hero-title {
+    font-size: clamp(1.5rem, 7vw, 1.875rem);
+  }
+
+  .contact-container .enquiry-box {
+    padding: var(--space-md) var(--space-sm);
+  }
 }
 
 @media (max-width:936px){
@@ -2465,12 +2486,10 @@ li a, li em, li strong{
   .footer-inner {
     padding: var(--space-md) var(--space-md) 0;
   }
-  .footer-master-logo-link .footer-master-title {
-    font-size: 1rem;
-  }
   .footer-nav-list {
-    flex-direction: column;
-    gap: var(--space-xs);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .footer-nav-item a {
     font-size: 0.9375rem;
