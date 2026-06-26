@@ -3,6 +3,11 @@
   command = ""
 
 [[redirects]]
+  from = "/about-us.html"
+  to = "/contact.html"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

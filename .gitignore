@@ -1,9 +1,29 @@
 # System files
-*.DS_Store
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
 
 # Dependencies and build outputs
 node_modules/
 dist/
 
-# Environment variables
+# Environment variables and secrets
 .env
+.env.*
+!.env.example
+
+# IDE and editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local tooling
+.netlify/
+.cursor/
+
+# Logs
+*.log
+npm-debug.log*

@@ -329,7 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Check if it's an internal HTML page link
     if (href.endsWith('.html') || href === 'index.html' || 
-        ['index.html', 'about-us.html', 'courses.html', 'resources.html'].includes(href)) {
+        ['index.html', 'contact.html', 'courses.html', 'resources.html'].includes(href)) {
       
       e.preventDefault();
       

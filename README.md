@@ -6,15 +6,25 @@ A modern, responsive web platform for mastering business case studies. Built wit
 - Clean, accessible design
 - Mobile-first navigation and layout
 - Downloadable resources and frameworks
-- Modern branding and color system
+- Modern branding and colour system
 
-## Live Demo
-[View the deployed site on mastercasestudies.com](https://www.mastercasestudies.com/)
+**Master Case Studies** is operated by **STERLING ORIGIN LIMITED**.
 
-## Connect with Us
+## Live site
+
+[mastercasestudies.com](https://www.mastercasestudies.com/)
+
+## Contact
+
+- Email: [support@sterlingorigin.com](mailto:support@sterlingorigin.com)
+- Contact form: [mastercasestudies.com/contact.html](https://www.mastercasestudies.com/contact.html)
+
+## Connect with us
+
+- [STERLING ORIGIN LIMITED (LinkedIn)](https://www.linkedin.com/company/sterling-origin/)
 - [James McNaughton (LinkedIn)](https://www.linkedin.com/in/james-mcnaughton1/)
-- [Sterling Origin (LinkedIn)](https://www.linkedin.com/company/sterling-origin/)
 - [Arez Sajeel (LinkedIn)](https://www.linkedin.com/in/arez-sajeel-47b820298/)
 
-## License
+## Licence
+
 See [LICENSE](LICENSE) for details.
